@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN echo ${DEBIAN_FRONTEND}
 
 RUN pip3 install \
-    gym \
+    gym==0.9.6 \
     tensorflow \
     Pillow \
     matplotlib \
