@@ -8,6 +8,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN echo ${DEBIAN_FRONTEND}
 
+RUN apt-get update &&\ 
+    apt-get install --no-install-recommends -y \
+    python-opengl
+
 RUN pip3 install \
     gym==0.9.6 \
     tensorflow \
@@ -21,5 +25,6 @@ RUN pip3 install \
     grpcio \
     pandas \
     scipy \
-    ipykernel
+    ipykernel \
+    pyglet==1.5.27
 
