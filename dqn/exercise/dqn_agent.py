@@ -29,6 +29,7 @@ class Agent():
             action_size (int): dimension of each action
             seed (int): random seed
         """
+        
         self.state_size = state_size
         self.action_size = action_size
         self.seed = random.seed(seed)
@@ -85,9 +86,23 @@ class Agent():
         """
         states, actions, rewards, next_states, dones = experiences
 
-        ## TODO: compute and minimize the loss
-        "*** YOUR CODE HERE ***"
+        # Step1: get max predicted Qvalues (for next states) from target model:
+        Q_targets_next = self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)
 
+        # Step2: compute Q targets for the cuurent state:
+        Q_targets = rewards + gamma*Q_targets_next*(1-dones)
+
+        # Step3: get expected Q values from the local model:
+        Q_expected = self.qnetwork_local(states).gather(1, actions)
+
+        # The loss is mse loss between Q_expected and Q_targets:
+        loss = F.mse_loss(Q_expected, Q_targets)
+
+        # we now backpropagate the loss:
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+        
         # ------------------- update target network ------------------- #
         self.soft_update(self.qnetwork_local, self.qnetwork_target, TAU)                     
 

@@ -26,5 +26,6 @@ RUN pip3 install \
     pandas \
     scipy \
     ipykernel \
-    pyglet==1.5.27
+    pyglet==1.5.27 \
+    box2d
 
