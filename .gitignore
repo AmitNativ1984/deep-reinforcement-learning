@@ -106,4 +106,5 @@ p1_navigation/Banana_Linux/
 *.zip
 
 p2_continuous-control/Reacher_Linux/
+p2_continuous-control/Reacher_Linux_NoVis/
 
