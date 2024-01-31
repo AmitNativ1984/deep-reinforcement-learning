@@ -1,13 +1,14 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
 	"name": "${localWorkspaceFolderBasename}",
-	"dockerFile": "Dockerfile",
+	"dockerFile": "../Dockerfile",
 	"build": {
 		"args": {
-			"BASE_IMAGE": "nvcr.io/nvidia/pytorch:23.02-py3",
+			"BASE_IMAGE": "nvcr.io/nvidia/pytorch:23.05-py3",
 			"USERNAME": "${localEnv:USERNAME}",
 		}
 	},
+	// "image": "python:3.10.12",
 	"privileged": true,
 	"runArgs": [
 		"--network=host",
