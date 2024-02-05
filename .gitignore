@@ -108,5 +108,8 @@ p1_navigation/Banana_Linux/
 p2_continuous-control/Reacher_Linux/
 p2_continuous-control/Reacher_Linux_NoVis/
 
+p3_collab-compet/Tennis_Linux/
+p3_collab-compet/Tennis_Linux_NoVis/
+
 # tensorboard
 runs/
