@@ -4,11 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
-            "name": "p3_collab-compet",
+            "name": "p3 train",
             "type": "python",
             "request": "launch",
             "program": "p3_collab-compet/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "p3 run",
+            "type": "python",
+            "request": "launch",
+            "program": "p3_collab-compet/run.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
