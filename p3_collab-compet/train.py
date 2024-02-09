@@ -101,4 +101,14 @@ if __name__ == "__main__":
     # # ----- Train the Agent with DDPG -----
     scores, mean_scores = maddpg(env, agent, n_agents=2, n_episodes=20000, max_t=1000, que_len=100)
 
+    # plot the scores
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(np.arange(1, len(scores)+1), scores, label='Max Score')
+    ax.plot(np.arange(1, len(mean_scores)+1), mean_scores, label='Mean Score')
+    ax.set_ylabel('Score')
+    ax.set_xlabel('Episode #')
+    ax.legend(loc='upper left')
+    plt.savefig('p3_collab-compet/scores.png')
+
     env.close()
